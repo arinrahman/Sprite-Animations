@@ -6,6 +6,13 @@ const context= canvas.getContext("2d");
 /* adding canvas height and width*/
 const CANVAS_WIDTH= canvas.width= 600;
 const CANVAS_HEIGHT= canvas.height= 600;
+const spriteWidth= 575; /* the width of player image*/
+const spriteHeight= 523; /* the height of player image*/
+let frameX=0;
+let frameY=0;
+let gameframe=0;
+const staggerframe=5;
+
 
 /* console.log(context)*/
 /*to inspect*/
@@ -70,12 +77,26 @@ function Animation()
     if x and y are both taken to be zero, 
     the image will be drawn at top left corner;
     the image is also kept at original width and height;
+    when there are 5 arguments, changing the fourth and fifth 
+    context.drawImage(playerImage,0,0, 6650,5800 );
+    arguments zooms in and zooms out the image;
+    incase of nine arguments, we have the most control over the image 
+
+    context.drawImage(image_itself, source_x, sourse_y, ssource_w, source_h, destination_x,  destination_y, destination_w,  destination_h);
+
 
     */
+    context.drawImage(playerImage, frameX*spriteWidth,frameY*spriteHeight,spriteWidth, spriteHeight,0,0, spriteWidth, spriteHeight);
+    if(gameframe% staggerframe==0)
+    {
+        if (frameX <6)frameX++;
+        else frameX=0;    
+    }
+    gameframe++;
     /*requestAnimateFrame is a built in 
     frame to  which if the function name, in this case, Animation is passed, the 
     function animate will run over and over and animate it*/
-    context.drawImage(playerImage,0,0);
+  
     requestAnimationFrame(Animation);
 
 };
