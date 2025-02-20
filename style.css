@@ -1,7 +1,9 @@
 #canvas1{
 
     border: 5px solid black;
-    position: absolute;
+    position: absolute; /*if parent element has position relative and child element 
+    has position absolute then we can vary the child element's position relative to
+    the parent element's position */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
