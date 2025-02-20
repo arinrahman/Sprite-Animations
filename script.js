@@ -26,6 +26,25 @@ const playerImage=document.createElement("img")
 
 const playerImage= new Image();
 /*
+let's create a function called animation 
 */
+/*
+this is the animation loop 
+*/
+
+function Animation()
+{
+    /*
+    I will clear old paint from canvas between any 
+    animation frame using the clearRect() method which takes
+    four arguments that specify which area of the canvas I want 
+    to clear; as I want to clear the entire canvas so I will 
+    take 0,0, CANVAS_WIDTH, CANVAS_HEIGHT */
+
+    context.clearRect(0,0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+    /*let's draw a rectangle with position 50,50 and height and width 100,100*/
+    context.fillRect(50,50,100,100);
+}
 
 
