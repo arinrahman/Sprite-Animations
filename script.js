@@ -45,6 +45,11 @@ function Animation()
 
     /*let's draw a rectangle with position 50,50 and height and width 100,100*/
     context.fillRect(50,50,100,100);
-}
-
+    /*requestAnimateFrame is a built in 
+    frame to  which if the function name, in this case, Animation is passed, the 
+    function animate will run over and over and animate it*/
+    requestAnimationFrame(Animation);
+};
+/*call the function Animation*/
+Animation();
 
