@@ -9,9 +9,9 @@ const CANVAS_HEIGHT= canvas.height= 600;
 const spriteWidth= 575; /* the width of player image*/
 const spriteHeight= 523; /* the height of player image*/
 let frameX=0;
-let frameY=0;
+let frameY=1;
 let gameframe=0;
-const staggerframe=5;
+const staggerframe=5; /* the higher the number the slower the animation*/
 
 
 /* console.log(context)*/
@@ -87,11 +87,15 @@ function Animation()
 
     */
     context.drawImage(playerImage, frameX*spriteWidth,frameY*spriteHeight,spriteWidth, spriteHeight,0,0, spriteWidth, spriteHeight);
+
+
     if(gameframe% staggerframe==0)
     {
+        /*as there are 6+1 images along the width in 1st frame */
         if (frameX <6)frameX++;
         else frameX=0;    
     }
+    /*the variables staggerframe and gameframe are used to slow down the movement of the player*/
     gameframe++;
     /*requestAnimateFrame is a built in 
     frame to  which if the function name, in this case, Animation is passed, the 
